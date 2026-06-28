@@ -1,0 +1,38 @@
+{
+  "common": {
+    "home": "Domů",
+    "explore": "Prozkoumat",
+    "settings": "Nastavení",
+    "start": "Spustit",
+    "holdToStop": "Pro zastavení\npřidrž"
+  },
+  "onboarding": {
+    "welcome": "Vítejte",
+    "welcomeSub": "Pojďme spolu aplikaci nastavit.",
+    "next": "Další",
+    "permissionsTitle": "Oprávnění",
+    "permissionsSub": "Tato aplikace potřebuje přístup k několika věcem, aby fungovala správně.",
+    "permission_bluetooth_title": "Bluetooth",
+    "permission_bluetooth_desc": "Používá se pro připojení k blízkým zařízením.",
+    "permission_wifi_title": "Wi-Fi",
+    "permission_wifi_desc": "Používá se pro detekci síťového prostředí.",
+    "permission_files_title": "Soubory",
+    "permission_files_desc": "Používá se pro čtení a ukládání dat na vašem zařízení.",
+    "allow": "Povolit",
+    "continue": "Pokračovat",
+    "grantAll": "Udělit oprávnění",
+    "skip": "Přeskočit",
+    "completeTitle": "Vše je připraveno!",
+    "completeSub": "Vše je nakonfigurováno. Jdeme na to.",
+    "getStarted": "Začít"
+  },
+  "settings": {
+    "theme": "Režim",
+    "language": "Jazyk",
+    "permissions": "Oprávnění",
+    "themeSystem": "Podle systému",
+    "themeLight": "Světlý",
+    "themeDark": "Tmavý",
+    "appPermissions": "Oprávnění aplikace"
+  }
+}

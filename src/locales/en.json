@@ -1,0 +1,38 @@
+{
+  "common": {
+    "home": "Home",
+    "explore": "Explore",
+    "settings": "Settings",
+    "start": "Start",
+    "holdToStop": "Hold to\nstop"
+  },
+  "onboarding": {
+    "welcome": "Welcome",
+    "welcomeSub": "Let's set up the app together.",
+    "next": "Next",
+    "permissionsTitle": "Permissions",
+    "permissionsSub": "This app needs access to a few things to work properly.",
+    "permission_bluetooth_title": "Bluetooth",
+    "permission_bluetooth_desc": "Used to connect to nearby devices.",
+    "permission_wifi_title": "Wi-Fi",
+    "permission_wifi_desc": "Used to detect your network environment.",
+    "permission_files_title": "Files",
+    "permission_files_desc": "Used to read and save data on your device.",
+    "allow": "Allow",
+    "continue": "Continue",
+    "grantAll": "Grant Permissions",
+    "skip": "Skip for now",
+    "completeTitle": "You're all set!",
+    "completeSub": "Everything is configured. Let's go.",
+    "getStarted": "Get Started"
+  },
+  "settings": {
+    "appearance": "Appearance",
+    "language": "Language",
+    "permissions": "Permissions",
+    "themeSystem": "System",
+    "themeLight": "Light",
+    "themeDark": "Dark",
+    "appPermissions": "App Permissions"
+  }
+}
