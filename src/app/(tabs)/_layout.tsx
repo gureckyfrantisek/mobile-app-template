@@ -19,6 +19,14 @@ export default function TabsLayout() {
       indicatorColor={colors.backgroundElement}
       iconColor={{ default: colors.textSecondary, selected: colors.highlight }}
       labelStyle={{ default: { color: colors.textSecondary }, selected: { color: colors.text } }}>
+      <NativeTabs.Trigger name="index">
+        <NativeTabs.Trigger.Label>{t('common.home')}</NativeTabs.Trigger.Label>
+        <NativeTabs.Trigger.Icon
+          sf={{ default: 'house', selected: 'house.fill' }}
+          md={{ default: 'home', selected: 'home_filled' }}
+        />
+      </NativeTabs.Trigger>
+      
       <NativeTabs.Trigger name="explore">
         <NativeTabs.Trigger.Label>{t('common.explore')}</NativeTabs.Trigger.Label>
         <NativeTabs.Trigger.Icon
@@ -32,14 +40,6 @@ export default function TabsLayout() {
         <NativeTabs.Trigger.Icon
           sf={{ default: 'map', selected: 'map.fill' }}
           md={{ default: 'map', selected: 'map' }}
-        />
-      </NativeTabs.Trigger>
-
-      <NativeTabs.Trigger name="index">
-        <NativeTabs.Trigger.Label>{t('common.home')}</NativeTabs.Trigger.Label>
-        <NativeTabs.Trigger.Icon
-          sf={{ default: 'house', selected: 'house.fill' }}
-          md={{ default: 'home', selected: 'home_filled' }}
         />
       </NativeTabs.Trigger>
 
