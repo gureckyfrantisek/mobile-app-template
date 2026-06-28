@@ -1,5 +1,5 @@
-import { NativeTabs } from 'expo-router/unstable-native-tabs';
 import { router } from 'expo-router';
+import { NativeTabs } from 'expo-router/unstable-native-tabs';
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -24,6 +24,14 @@ export default function TabsLayout() {
         <NativeTabs.Trigger.Icon
           sf={{ default: 'safari', selected: 'safari.fill' }}
           md={{ default: 'explore', selected: 'explore' }}
+        />
+      </NativeTabs.Trigger>
+
+      <NativeTabs.Trigger name="map">
+        <NativeTabs.Trigger.Label>{t('common.map')}</NativeTabs.Trigger.Label>
+        <NativeTabs.Trigger.Icon
+          sf={{ default: 'map', selected: 'map.fill' }}
+          md={{ default: 'map', selected: 'map' }}
         />
       </NativeTabs.Trigger>
 
