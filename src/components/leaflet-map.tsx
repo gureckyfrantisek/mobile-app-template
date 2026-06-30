@@ -1,5 +1,5 @@
-import { StyleSheet } from 'react-native';
-import { WebView } from 'react-native-webview';
+import { StyleSheet } from "react-native";
+import { WebView } from "react-native-webview";
 
 type Props = {
   initialLat?: number;
@@ -57,10 +57,14 @@ function createLeafletHtml(lat: number, lng: number, zoom: number): string {
 </html>`;
 }
 
-export function LeafletMap({ initialLat = 50.104, initialLng = 14.388, initialZoom = 17 }: Props) {
+export function LeafletMap({
+  initialLat = 50.104,
+  initialLng = 14.388,
+  initialZoom = 17,
+}: Props) {
   return (
     <WebView
-      originWhitelist={['*']}
+      originWhitelist={["*"]}
       source={{ html: createLeafletHtml(initialLat, initialLng, initialZoom) }}
       style={styles.map}
       javaScriptEnabled

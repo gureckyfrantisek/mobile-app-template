@@ -1,7 +1,7 @@
-import { StyleSheet } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { StyleSheet } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
-import { LeafletMap } from '@/components/leaflet-map';
+import { LeafletMap } from "@/components/leaflet-map";
 
 export default function MapScreen() {
   return (

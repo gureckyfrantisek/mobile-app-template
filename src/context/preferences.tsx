@@ -1,11 +1,17 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import * as Localization from 'expo-localization';
-import { createContext, useCallback, useContext, useEffect, useState } from 'react';
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import * as Localization from "expo-localization";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 
-import i18n from '@/i18n';
+import i18n from "@/i18n";
 
-export type AppTheme = 'system' | 'light' | 'dark';
-export type AppLanguage = 'en' | 'cs';
+export type AppTheme = "system" | "light" | "dark";
+export type AppLanguage = "en" | "cs";
 
 interface Prefs {
   theme: AppTheme;
@@ -21,24 +27,30 @@ interface PreferencesContextValue extends Prefs {
   resetOnboarding: () => void;
 }
 
-const STORAGE_KEY = 'prefs';
+const STORAGE_KEY = "prefs";
 
-const SUPPORTED_LANGUAGES: AppLanguage[] = ['en', 'cs'];
+const SUPPORTED_LANGUAGES: AppLanguage[] = ["en", "cs"];
 
 function systemLanguage(): AppLanguage {
-  const code = Localization.getLocales()[0]?.languageCode ?? 'en';
-  return SUPPORTED_LANGUAGES.includes(code as AppLanguage) ? (code as AppLanguage) : 'en';
+  const code = Localization.getLocales()[0]?.languageCode ?? "en";
+  return SUPPORTED_LANGUAGES.includes(code as AppLanguage)
+    ? (code as AppLanguage)
+    : "en";
 }
 
 const DEFAULT: Prefs = {
-  theme: 'system',
+  theme: "system",
   language: systemLanguage(),
   hasOnboarded: false,
 };
 
 const PreferencesContext = createContext<PreferencesContextValue | null>(null);
 
-export function PreferencesProvider({ children }: { children: React.ReactNode }) {
+export function PreferencesProvider({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const [prefs, setPrefs] = useState<Prefs>(DEFAULT);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -88,7 +100,15 @@ export function PreferencesProvider({ children }: { children: React.ReactNode })
 
   return (
     <PreferencesContext.Provider
-      value={{ ...prefs, isLoading, setTheme, setLanguage, completeOnboarding, resetOnboarding }}>
+      value={{
+        ...prefs,
+        isLoading,
+        setTheme,
+        setLanguage,
+        completeOnboarding,
+        resetOnboarding,
+      }}
+    >
       {children}
     </PreferencesContext.Provider>
   );
@@ -96,6 +116,7 @@ export function PreferencesProvider({ children }: { children: React.ReactNode })
 
 export function usePreferences(): PreferencesContextValue {
   const ctx = useContext(PreferencesContext);
-  if (!ctx) throw new Error('usePreferences must be used within PreferencesProvider');
+  if (!ctx)
+    throw new Error("usePreferences must be used within PreferencesProvider");
   return ctx;
 }

@@ -1,5 +1,5 @@
-import { useRef, useState } from 'react';
-import { Pressable, StyleSheet, View } from 'react-native';
+import { useRef, useState } from "react";
+import { Pressable, StyleSheet, View } from "react-native";
 import Animated, {
   cancelAnimation,
   Easing,
@@ -7,12 +7,12 @@ import Animated, {
   useAnimatedStyle,
   useSharedValue,
   withTiming,
-} from 'react-native-reanimated';
-import { scheduleOnRN } from 'react-native-worklets';
+} from "react-native-reanimated";
+import { scheduleOnRN } from "react-native-worklets";
 
-import { ThemedText } from '@/components/themed-text';
-import { useTheme } from '@/hooks/use-theme';
-import { useTranslation } from 'react-i18next';
+import { ThemedText } from "@/components/themed-text";
+import { useTheme } from "@/hooks/use-theme";
+import { useTranslation } from "react-i18next";
 
 interface HoldButtonProps {
   size?: number;
@@ -47,6 +47,7 @@ export function HoldButton({
   const handleStop = () => {
     isRunningRef.current = false;
     setIsRunning(false);
+    // eslint-disable-next-line react-hooks/immutability
     progress.value = withTiming(0, { duration: 300 });
     onStop?.();
   };
@@ -57,24 +58,36 @@ export function HoldButton({
       setIsRunning(true);
       onStart?.();
     } else {
-      progress.value = withTiming(1, { duration: holdDuration, easing: Easing.linear }, (finished) => {
-        if (finished) {
-          scheduleOnRN(handleStop);
-        }
-      });
+      // eslint-disable-next-line react-hooks/immutability
+      progress.value = withTiming(
+        1,
+        { duration: holdDuration, easing: Easing.linear },
+        (finished) => {
+          if (finished) {
+            scheduleOnRN(handleStop);
+          }
+        },
+      );
     }
   };
 
   const handlePressOut = () => {
     if (isRunningRef.current && progress.value < 1) {
       cancelAnimation(progress);
+      // eslint-disable-next-line react-hooks/immutability
       progress.value = withTiming(0, { duration: 300 });
     }
   };
 
   return (
     <Pressable onPressIn={handlePressIn} onPressOut={handlePressOut}>
-      <Animated.View style={[styles.outer, { width: size, height: size, borderRadius: size / 2 }, animatedStyle]}>
+      <Animated.View
+        style={[
+          styles.outer,
+          { width: size, height: size, borderRadius: size / 2 },
+          animatedStyle,
+        ]}
+      >
         <View
           style={[
             styles.inner,
@@ -84,7 +97,8 @@ export function HoldButton({
               borderRadius: innerSize / 2,
               backgroundColor: colors.background,
             },
-          ]}>
+          ]}
+        >
           <ThemedText type="small" style={styles.label}>
             {isRunning ? t("common.holdToStop") : t("common.start")}
           </ThemedText>
@@ -96,14 +110,14 @@ export function HoldButton({
 
 const styles = StyleSheet.create({
   outer: {
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
   },
   inner: {
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
   },
   label: {
-    textAlign: 'center',
+    textAlign: "center",
   },
 });

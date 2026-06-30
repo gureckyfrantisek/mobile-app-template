@@ -1,8 +1,8 @@
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { StyleSheet } from 'react-native';
+import { SafeAreaView } from "react-native-safe-area-context";
+import { StyleSheet } from "react-native";
 
-import type { ThemedViewProps } from '@/components/themed-view';
-import { ThemedView } from '@/components/themed-view';
+import type { ThemedViewProps } from "@/components/themed-view";
+import { ThemedView } from "@/components/themed-view";
 
 export function ScreenContainer({ style, ...rest }: ThemedViewProps) {
   return (
